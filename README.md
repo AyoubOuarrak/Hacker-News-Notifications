@@ -2,7 +2,7 @@
 Simple status bar app written in Swift that shows a random story from the top stories in Hacker News at a fixed time
      
      
-![](https://raw.githubusercontent.com/AyoubOuarrak/Hacker-News-Notifications/master/Hacker%20News%20Notification/Resources/Screen%20Shot%202016-05-29%20at%2003.09.58.png =550x)
+![](https://raw.githubusercontent.com/AyoubOuarrak/Hacker-News-Notifications/master/Hacker%20News%20Notification/Resources/Screen%20Shot%202016-05-29%20at%2003.09.58.png)
 
 ##Why
 I'm a big fan of Hacker News and status bar Applications. I spend hours scrolling in the HN web site to find some interesting story and recently I found these nice [API](https://github.com/HackerNews/API), so I thought, instead of scrolling why not create a status bar app that automatically show me (nicely) a random story from hacker news
@@ -16,7 +16,7 @@ Mac OS X El Capitan 10.11
 ##Usage
 There is just an icon in the status bar where you can quit the app, update the top stories and configure the app. In the notification center you can find all the stories.
 
-![](https://raw.githubusercontent.com/AyoubOuarrak/Hacker-News-Notifications/master/Hacker%20News%20Notification/Resources/Screen%20Shot%202016-05-29%20at%2003.10.06.png =350x)
+![](https://raw.githubusercontent.com/AyoubOuarrak/Hacker-News-Notifications/master/Hacker%20News%20Notification/Resources/Screen%20Shot%202016-05-29%20at%2003.10.06.png)
 
 ##License
 The MIT License (MIT)
