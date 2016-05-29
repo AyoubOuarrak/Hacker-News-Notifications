@@ -12,6 +12,8 @@
 		21EB54781CFA1649006F1F2E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21EB54761CFA1649006F1F2E /* MainMenu.xib */; };
 		21EB54831CFA1649006F1F2E /* Hacker_News_NotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB54821CFA1649006F1F2E /* Hacker_News_NotificationTests.swift */; };
 		21EB548E1CFA1649006F1F2E /* Hacker_News_NotificationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB548D1CFA1649006F1F2E /* Hacker_News_NotificationUITests.swift */; };
+		21FDAC291CFA26430089C14C /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FDAC281CFA26430089C14C /* StatusMenuController.swift */; };
+		21FDAC2B1CFA2B220089C14C /* HackerNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FDAC2A1CFA2B220089C14C /* HackerNewsAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		21EB54891CFA1649006F1F2E /* Hacker News NotificationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hacker News NotificationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21EB548D1CFA1649006F1F2E /* Hacker_News_NotificationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacker_News_NotificationUITests.swift; sourceTree = "<group>"; };
 		21EB548F1CFA1649006F1F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21FDAC281CFA26430089C14C /* StatusMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
+		21FDAC2A1CFA2B220089C14C /* HackerNewsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HackerNewsAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				21EB54721CFA1649006F1F2E /* AppDelegate.swift */,
+				21FDAC281CFA26430089C14C /* StatusMenuController.swift */,
 				21EB54741CFA1649006F1F2E /* Assets.xcassets */,
 				21EB54761CFA1649006F1F2E /* MainMenu.xib */,
+				21FDAC2A1CFA2B220089C14C /* HackerNewsAPI.swift */,
 				21EB54791CFA1649006F1F2E /* Info.plist */,
 			);
 			path = "Hacker News Notification";
@@ -249,7 +255,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21FDAC291CFA26430089C14C /* StatusMenuController.swift in Sources */,
 				21EB54731CFA1649006F1F2E /* AppDelegate.swift in Sources */,
+				21FDAC2B1CFA2B220089C14C /* HackerNewsAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +479,7 @@
 				21EB54941CFA1649006F1F2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21EB54951CFA1649006F1F2E /* Build configuration list for PBXNativeTarget "Hacker News NotificationTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +488,7 @@
 				21EB54971CFA1649006F1F2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		21EB54981CFA1649006F1F2E /* Build configuration list for PBXNativeTarget "Hacker News NotificationUITests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +497,7 @@
 				21EB549A1CFA1649006F1F2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
