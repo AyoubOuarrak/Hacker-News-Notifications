@@ -8,6 +8,9 @@
 
 import Cocoa
 
+let DEFAULT_UPDATE_TIME_H = 0
+let DEFAULT_UPDATE_TIME_M = 30
+
 class StatusMenuController: NSObject, PreferencesWindowDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     
@@ -26,14 +29,15 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
         preferencesWindow.delegate = self
         
         HNApi.getStories("beststories")
-        scheduleRandomStories()
+        //scheduleRandomStories()
     }
     
     func scheduleRandomStories() {
-        //let calendar = NSCalendar.currentCalendar()
-        //let updateTime = calendar.components([.Hour, .Minute], fromDate: )
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let updateTimeH = defaults.integerForKey("updateTimeH") ?? DEFAULT_UPDATE_TIME_H
+        let updateTimeM = defaults.integerForKey("updateTimeM") ?? DEFAULT_UPDATE_TIME_M
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(7.0,
+        timer = NSTimer.scheduledTimerWithTimeInterval(Double(updateTimeH*3600 + updateTimeM*60),
                                                        target: self,
                                                        selector: Selector("getRandomStory"),
                                                        userInfo: nil,

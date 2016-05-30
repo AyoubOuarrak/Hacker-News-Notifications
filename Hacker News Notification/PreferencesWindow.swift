@@ -26,6 +26,11 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         self.window?.center()
         self.window?.makeKeyAndOrderFront(nil)
         NSApp.activateIgnoringOtherApps(true)
+        
+        //let defaults = NSUserDefaults.standardUserDefaults()
+        //let updateTimeH = defaults.integerForKey("updateTimeH") ?? DEFAULT_UPDATE_TIME_H
+        //let updateTimeM = defaults.integerForKey("updateTimeM") ?? DEFAULT_UPDATE_TIME_M
+        
     }
     
     @IBAction func saveClicked(sender: NSButton) {
@@ -34,7 +39,10 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     
     func windowWillClose(notification: NSNotification) {
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setValue(updateDatePicker.dateValue, forKey: "updateTime")
+        let updateTime = NSCalendar.currentCalendar().components([.Hour, .Minute], fromDate: updateDatePicker.dateValue)
+        
+        defaults.setValue(updateTime.hour, forKey: "updateTimeH")
+        defaults.setValue(updateTime.minute, forKey: "updateTimeM")
         delegate?.preferencesDidUpdate()
     }
 }
