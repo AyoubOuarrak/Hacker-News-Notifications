@@ -21,8 +21,28 @@
         </customObject>
         <menu id="yYe-je-QOU">
             <items>
+                <menuItem title="Stories" id="TrD-pg-Di0">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Stories" id="AqI-RQ-c4t">
+                        <items>
+                            <menuItem title="Best Stories" id="erv-m6-ibV">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                            <menuItem title="Top Stories" id="m6o-Yw-Nin">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                            <menuItem title="New Stories" id="muF-ry-lHZ">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="tZR-o1-YTr"/>
                 <menuItem title="Preferences" id="6tl-mk-HJf">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="preferencesClicked:" target="Z83-Wm-Er3" id="oy4-bA-gWj"/>
+                    </connections>
                 </menuItem>
                 <menuItem title="Update" id="FZR-tQ-gvl">
                     <modifierMask key="keyEquivalentModifierMask"/>
