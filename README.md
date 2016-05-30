@@ -1,5 +1,5 @@
 # Hacker News Notifications
-Simple status bar app written in Swift that shows random stories from Hacker News at a choosen interval time
+Simple status bar app written in Swift that shows random stories from Hacker News at a chosen interval time
      
      
 ![](https://raw.githubusercontent.com/AyoubOuarrak/Hacker-News-Notifications/master/Hacker%20News%20Notification/Resources/Screen%20Shot%202016-05-29%20at%2003.09.58.png)
