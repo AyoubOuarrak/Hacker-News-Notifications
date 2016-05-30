@@ -14,6 +14,7 @@ protocol PreferencesWindowDelegate {
 
 class PreferencesWindow: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var updateDatePicker: NSDatePicker!
+    // preferences window delegate
     var delegate: PreferencesWindowDelegate?
     
     override var windowNibName: String! {
@@ -26,29 +27,20 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         self.window?.center()
         self.window?.makeKeyAndOrderFront(nil)
         NSApp.activateIgnoringOtherApps(true)
-        
-        //let defaults = NSUserDefaults.standardUserDefaults()
-        //let updateTimeH = defaults.integerForKey("updateTimeH") ?? DEFAULT_UPDATE_TIME_H
-        //let updateTimeM = defaults.integerForKey("updateTimeM") ?? DEFAULT_UPDATE_TIME_M
-        
     }
     
     @IBAction func saveClicked(sender: NSButton) {
+        // get minute and hour from the datepicker
         let defaults = NSUserDefaults.standardUserDefaults()
         let updateTime = NSCalendar.currentCalendar().components([.Hour, .Minute], fromDate: updateDatePicker.dateValue)
         
+        // save minute and hour and close the window
         defaults.setValue(updateTime.hour, forKey: "updateTimeH")
         defaults.setValue(updateTime.minute, forKey: "updateTimeM")
-        //delegate?.preferencesDidUpdate()
         self.window?.close()
     }
     
     func windowWillClose(notification: NSNotification) {
-        //let defaults = NSUserDefaults.standardUserDefaults()
-        //let updateTime = NSCalendar.currentCalendar().components([.Hour, .Minute], fromDate: updateDatePicker.dateValue)
-        
-        //defaults.setValue(updateTime.hour, forKey: "updateTimeH")
-        //defaults.setValue(updateTime.minute, forKey: "updateTimeM")
         delegate?.preferencesDidUpdate()
     }
 }

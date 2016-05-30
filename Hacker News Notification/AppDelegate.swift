@@ -24,11 +24,14 @@ class AppDelegate: NSObject, NSUserNotificationCenterDelegate, NSApplicationDele
         return true
     }
     
+    // notification delegate
     func userNotificationCenter(center: NSUserNotificationCenter, didActivateNotification notification: NSUserNotification) {
         let defaults = NSUserDefaults.standardUserDefaults()
         
+        // check if the story url is nil
         if defaults.stringForKey("storyUrl") != nil {
             let story = defaults.stringForKey("storyUrl")
+            // open the story url using the defautl browser
             NSWorkspace.sharedWorkspace().openURL(NSURL(string: story!)!)
         }
     }
