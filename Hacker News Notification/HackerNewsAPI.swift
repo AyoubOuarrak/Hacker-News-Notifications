@@ -23,8 +23,8 @@ class HackerNewsAPI {
         notification.title = "Hacker News"
     }
     
-    func getTopStories() {
-        let url = NSURL(string: "https://hacker-news.firebaseio.com/v0/topstories.json")
+    func getStories(stories: String) {
+        let url = NSURL(string: "https://hacker-news.firebaseio.com/v0/\(stories).json")
         let task = session.dataTaskWithURL(url!) { data, response, err in
             
             if let error = err {
@@ -35,7 +35,19 @@ class HackerNewsAPI {
                 switch httpResponse.statusCode {
                 case 200:
                     self.topStories = self.storiesFromJSONData(data!)!
-                    self.notification.informativeText = "Top Stories updated!"
+                    switch stories {
+                        case "beststories":
+                            self.notification.informativeText = "Best Stories updated!"
+                        
+                        case "topstories":
+                            self.notification.informativeText = "Top Stories updated!"
+                        
+                        case "newstories":
+                            self.notification.informativeText = "New Stories updated!"
+                       
+                        default:
+                            self.notification.informativeText = "Stories updated!"
+                    }
                     NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(self.notification)
                     
                 case 401:

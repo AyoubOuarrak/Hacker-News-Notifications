@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class StatusMenuController: NSObject {
+class StatusMenuController: NSObject, PreferencesWindowDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     
     var timer = NSTimer()
@@ -23,18 +23,17 @@ class StatusMenuController: NSObject {
         statusItem.menu = statusMenu
         
         preferencesWindow = PreferencesWindow()
+        preferencesWindow.delegate = self
         
-        HNApi.getTopStories()
-        
+        HNApi.getStories("beststories")
         scheduleRandomStories()
-       
     }
     
     func scheduleRandomStories() {
-        let calendar = NSCalendar.currentCalendar()
-        let updateTime = calendar.components([.Hour, .Minute], fromDate: preferencesWindow.updateDatePicker.dateValue)
+        //let calendar = NSCalendar.currentCalendar()
+        //let updateTime = calendar.components([.Hour, .Minute], fromDate: )
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(Double(updateTime.hour*3600 + updateTime.minute*60),
+        timer = NSTimer.scheduledTimerWithTimeInterval(7.0,
                                                        target: self,
                                                        selector: Selector("getRandomStory"),
                                                        userInfo: nil,
@@ -45,17 +44,31 @@ class StatusMenuController: NSObject {
         HNApi.showRandomStory()
     }
     
+    func preferencesDidUpdate() {
+        scheduleRandomStories()
+    }
     
     @IBAction func quitClicked(sender: NSMenuItem) {
         NSApplication.sharedApplication().terminate(self)
     }
     
     @IBAction func updateClicked(sender: NSMenuItem) {
-        HNApi.getTopStories()
+        HNApi.getStories("beststories")
     }
     
     @IBAction func preferencesClicked(sender: NSMenuItem) {
         preferencesWindow.showWindow(nil)
     }
+    
+    @IBAction func bestStoriesSelected(sender: NSMenuItem) {
+        HNApi.getStories("beststories")
+    }
 
+    @IBAction func topStoriesSelected(sender: NSMenuItem) {
+        HNApi.getStories("topstories")
+    }
+    
+    @IBAction func newStoriesSelected(sender: NSMenuItem) {
+        HNApi.getStories("newstories")
+    }
 }

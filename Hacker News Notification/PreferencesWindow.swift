@@ -8,9 +8,13 @@
 
 import Cocoa
 
-class PreferencesWindow: NSWindowController, NSWindowDelegate {
+protocol PreferencesWindowDelegate {
+    func preferencesDidUpdate()
+}
 
+class PreferencesWindow: NSWindowController, NSWindowDelegate {
     @IBOutlet weak var updateDatePicker: NSDatePicker!
+    var delegate: PreferencesWindowDelegate?
     
     override var windowNibName: String! {
         return "PreferencesWindow"
@@ -31,5 +35,6 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     func windowWillClose(notification: NSNotification) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setValue(updateDatePicker.dateValue, forKey: "updateTime")
+        delegate?.preferencesDidUpdate()
     }
 }

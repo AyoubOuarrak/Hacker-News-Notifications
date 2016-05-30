@@ -27,12 +27,21 @@
                         <items>
                             <menuItem title="Best Stories" id="erv-m6-ibV">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="bestStoriesSelected:" target="Z83-Wm-Er3" id="D36-2K-yKM"/>
+                                </connections>
                             </menuItem>
                             <menuItem title="Top Stories" id="m6o-Yw-Nin">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="topStoriesSelected:" target="Z83-Wm-Er3" id="wub-J0-ycX"/>
+                                </connections>
                             </menuItem>
                             <menuItem title="New Stories" id="muF-ry-lHZ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="newStoriesSelected:" target="Z83-Wm-Er3" id="kA8-Jn-LGM"/>
+                                </connections>
                             </menuItem>
                         </items>
                     </menu>
