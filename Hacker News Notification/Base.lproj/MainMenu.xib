@@ -60,6 +60,12 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="Egr-Jl-zz9"/>
+                <menuItem title="About" id="wOb-ud-P4R">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="aboutClicked:" target="Z83-Wm-Er3" id="imW-I7-LKH"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Quit" id="SaQ-oo-hBW">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>

@@ -17,6 +17,7 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     let HNApi = HackerNewsAPI()
     var preferencesWindow: PreferencesWindow!
+    var aboutWindow: AboutWindow!
     
     override func awakeFromNib() {
         let icon = NSImage(named: "statusIcon")
@@ -25,6 +26,7 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
         statusItem.menu = statusMenu
         
         preferencesWindow = PreferencesWindow()
+        aboutWindow = AboutWindow()
         
         preferencesWindow.delegate = self
         
@@ -66,6 +68,10 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     
     @IBAction func preferencesClicked(sender: NSMenuItem) {
         preferencesWindow.showWindow(nil)
+    }
+    
+    @IBAction func aboutClicked(sender: NSMenuItem) {
+        aboutWindow.showWindow(nil)
     }
     
     @IBAction func bestStoriesSelected(sender: NSMenuItem) {

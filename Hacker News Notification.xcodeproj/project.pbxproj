@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		21A8DC901CFB65EB00C5CBE8 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8DC8E1CFB65EB00C5CBE8 /* PreferencesWindow.swift */; };
 		21A8DC911CFB65EB00C5CBE8 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21A8DC8F1CFB65EB00C5CBE8 /* PreferencesWindow.xib */; };
+		21A8DC931CFCB59200C5CBE8 /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21A8DC921CFCB59200C5CBE8 /* AboutWindow.xib */; };
+		21A8DC951CFCBAA400C5CBE8 /* AboutWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8DC941CFCBAA400C5CBE8 /* AboutWindow.swift */; };
 		21EB54731CFA1649006F1F2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB54721CFA1649006F1F2E /* AppDelegate.swift */; };
 		21EB54751CFA1649006F1F2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21EB54741CFA1649006F1F2E /* Assets.xcassets */; };
 		21EB54781CFA1649006F1F2E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21EB54761CFA1649006F1F2E /* MainMenu.xib */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		21A8DC8E1CFB65EB00C5CBE8 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
 		21A8DC8F1CFB65EB00C5CBE8 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
+		21A8DC921CFCB59200C5CBE8 /* AboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
+		21A8DC941CFCBAA400C5CBE8 /* AboutWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindow.swift; sourceTree = "<group>"; };
 		21EB546F1CFA1649006F1F2E /* Hacker News Notification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hacker News Notification.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21EB54721CFA1649006F1F2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21EB54741CFA1649006F1F2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,10 +106,12 @@
 			isa = PBXGroup;
 			children = (
 				21EB54721CFA1649006F1F2E /* AppDelegate.swift */,
+				21A8DC941CFCBAA400C5CBE8 /* AboutWindow.swift */,
 				21FDAC281CFA26430089C14C /* StatusMenuController.swift */,
 				21EB54741CFA1649006F1F2E /* Assets.xcassets */,
 				21EB54761CFA1649006F1F2E /* MainMenu.xib */,
 				21A8DC8E1CFB65EB00C5CBE8 /* PreferencesWindow.swift */,
+				21A8DC921CFCB59200C5CBE8 /* AboutWindow.xib */,
 				21A8DC8F1CFB65EB00C5CBE8 /* PreferencesWindow.xib */,
 				21FDAC2A1CFA2B220089C14C /* HackerNewsAPI.swift */,
 				21EB54791CFA1649006F1F2E /* Info.plist */,
@@ -238,6 +244,7 @@
 				21EB54751CFA1649006F1F2E /* Assets.xcassets in Resources */,
 				21A8DC911CFB65EB00C5CBE8 /* PreferencesWindow.xib in Resources */,
 				21EB54781CFA1649006F1F2E /* MainMenu.xib in Resources */,
+				21A8DC931CFCB59200C5CBE8 /* AboutWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +273,7 @@
 				21FDAC291CFA26430089C14C /* StatusMenuController.swift in Sources */,
 				21EB54731CFA1649006F1F2E /* AppDelegate.swift in Sources */,
 				21FDAC2B1CFA2B220089C14C /* HackerNewsAPI.swift in Sources */,
+				21A8DC951CFCBAA400C5CBE8 /* AboutWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
