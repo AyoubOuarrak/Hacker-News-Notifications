@@ -13,12 +13,10 @@ let DEFAULT_UPDATE_TIME_M = 30
 
 class StatusMenuController: NSObject, PreferencesWindowDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
-    
-    var timer = NSTimer()
+    var showStoryScheduler = NSTimer()
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     let HNApi = HackerNewsAPI()
     var preferencesWindow: PreferencesWindow!
-
     
     override func awakeFromNib() {
         let icon = NSImage(named: "statusIcon")
@@ -31,20 +29,22 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
         preferencesWindow.delegate = self
         
         HNApi.getStories("beststories")
+        scheduleRandomStories()
     }
     
     func scheduleRandomStories() {
         let defaults = NSUserDefaults.standardUserDefaults()
         let updateTimeH = defaults.integerForKey("updateTimeH") ?? DEFAULT_UPDATE_TIME_H
         let updateTimeM = defaults.integerForKey("updateTimeM") ?? DEFAULT_UPDATE_TIME_M
-        
-        timer = NSTimer.scheduledTimerWithTimeInterval(//Double(updateTimeH*3600) + Double(updateTimeM*60),
-                                                    10.0,
-                                                       target: self,
-                                                       selector: Selector("getRandomStory"),
-                                                       userInfo: nil,
-                                                       repeats: true)
+        showStoryScheduler.invalidate()
+        showStoryScheduler = NSTimer.scheduledTimerWithTimeInterval(Double(updateTimeH*3600) + Double(updateTimeM*60),
+                    target: self,
+                    selector: Selector("getRandomStory"),
+                    userInfo: nil,
+                    repeats: true)
+
     }
+
     
     func getRandomStory() {
         HNApi.showRandomStory()

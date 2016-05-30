@@ -44,13 +44,6 @@
                             <datePickerElements key="datePickerElements" hour="YES" minute="YES"/>
                         </datePickerCell>
                     </datePicker>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8o-wz-AAH">
-                        <rect key="frame" x="27" y="96" width="109" height="18"/>
-                        <buttonCell key="cell" type="check" title="Silent mode" bezelStyle="regularSquare" imagePosition="right" alignment="left" inset="2" id="eyg-wH-il5">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oD7-Kk-1LR">
                         <rect key="frame" x="80" y="13" width="70" height="32"/>
                         <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Yll-Zr-PsI">
@@ -60,6 +53,20 @@
                         <connections>
                             <action selector="saveClicked:" target="-2" id="eqT-c3-ysp"/>
                         </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r5e-0g-7Va">
+                        <rect key="frame" x="39" y="73" width="131" height="18"/>
+                        <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="right" inset="2" id="mFF-v6-hHJ">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y8o-wz-AAH">
+                        <rect key="frame" x="59" y="93" width="111" height="18"/>
+                        <buttonCell key="cell" type="check" title="Silent mode" bezelStyle="regularSquare" imagePosition="right" alignment="left" inset="2" id="eyg-wH-il5">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
                     </button>
                 </subviews>
             </view>
