@@ -18,6 +18,7 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
     let HNApi = HackerNewsAPI()
     var preferencesWindow: PreferencesWindow!
+
     
     override func awakeFromNib() {
         let icon = NSImage(named: "statusIcon")
@@ -26,10 +27,10 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
         statusItem.menu = statusMenu
         
         preferencesWindow = PreferencesWindow()
+        
         preferencesWindow.delegate = self
         
         HNApi.getStories("beststories")
-        //scheduleRandomStories()
     }
     
     func scheduleRandomStories() {
@@ -37,7 +38,8 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
         let updateTimeH = defaults.integerForKey("updateTimeH") ?? DEFAULT_UPDATE_TIME_H
         let updateTimeM = defaults.integerForKey("updateTimeM") ?? DEFAULT_UPDATE_TIME_M
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(Double(updateTimeH*3600 + updateTimeM*60),
+        timer = NSTimer.scheduledTimerWithTimeInterval(//Double(updateTimeH*3600) + Double(updateTimeM*60),
+                                                    10.0,
                                                        target: self,
                                                        selector: Selector("getRandomStory"),
                                                        userInfo: nil,
@@ -57,7 +59,9 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     }
     
     @IBAction func updateClicked(sender: NSMenuItem) {
-        HNApi.getStories("beststories")
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let stories = defaults.stringForKey("stories")
+        HNApi.getStories(stories!)
     }
     
     @IBAction func preferencesClicked(sender: NSMenuItem) {
@@ -65,14 +69,20 @@ class StatusMenuController: NSObject, PreferencesWindowDelegate {
     }
     
     @IBAction func bestStoriesSelected(sender: NSMenuItem) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue("beststories", forKey: "stories")
         HNApi.getStories("beststories")
     }
 
     @IBAction func topStoriesSelected(sender: NSMenuItem) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue("topstories", forKey: "stories")
         HNApi.getStories("topstories")
     }
     
     @IBAction func newStoriesSelected(sender: NSMenuItem) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue("newstories", forKey: "stories")
         HNApi.getStories("newstories")
     }
 }

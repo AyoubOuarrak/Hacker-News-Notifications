@@ -34,15 +34,21 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     }
     
     @IBAction func saveClicked(sender: NSButton) {
-        self.window?.close()
-    }
-    
-    func windowWillClose(notification: NSNotification) {
         let defaults = NSUserDefaults.standardUserDefaults()
         let updateTime = NSCalendar.currentCalendar().components([.Hour, .Minute], fromDate: updateDatePicker.dateValue)
         
         defaults.setValue(updateTime.hour, forKey: "updateTimeH")
         defaults.setValue(updateTime.minute, forKey: "updateTimeM")
+        //delegate?.preferencesDidUpdate()
+        self.window?.close()
+    }
+    
+    func windowWillClose(notification: NSNotification) {
+        //let defaults = NSUserDefaults.standardUserDefaults()
+        //let updateTime = NSCalendar.currentCalendar().components([.Hour, .Minute], fromDate: updateDatePicker.dateValue)
+        
+        //defaults.setValue(updateTime.hour, forKey: "updateTimeH")
+        //defaults.setValue(updateTime.minute, forKey: "updateTimeM")
         delegate?.preferencesDidUpdate()
     }
 }

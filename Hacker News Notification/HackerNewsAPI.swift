@@ -19,10 +19,6 @@ class HackerNewsAPI {
     let session = NSURLSession.sharedSession()
     var topStories = [Int]()
     
-    func HackerNewsAPI() {
-        notification.title = "Hacker News"
-    }
-    
     func getStories(stories: String) {
         let url = NSURL(string: "https://hacker-news.firebaseio.com/v0/\(stories).json")
         let task = session.dataTaskWithURL(url!) { data, response, err in
@@ -37,25 +33,31 @@ class HackerNewsAPI {
                     self.topStories = self.storiesFromJSONData(data!)!
                     switch stories {
                         case "beststories":
+                            self.notification.title = "Hacker News"
                             self.notification.informativeText = "Best Stories updated!"
                         
                         case "topstories":
+                            self.notification.title = "Hacker News"
                             self.notification.informativeText = "Top Stories updated!"
                         
                         case "newstories":
+                            self.notification.title = "Hacker News"
                             self.notification.informativeText = "New Stories updated!"
                        
                         default:
+                            self.notification.title = "Hacker News"
                             self.notification.informativeText = "Stories updated!"
                     }
                     NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(self.notification)
                     
                 case 401:
+                    self.notification.title = "Hacker News"
                     self.notification.informativeText = "Cannot get last top stories"
                     NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(self.notification)
                     NSLog("api returned an 'unauthorized' response. Did you set your API key?")
                 
                 default:
+                    self.notification.title = "Hacker News"
                     self.notification.informativeText = "Cannot get last top stories"
                     NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(self.notification)
                     NSLog("api returned response: %d %@", httpResponse.statusCode, NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode))
@@ -111,18 +113,23 @@ class HackerNewsAPI {
             if let httpResponse = response as? NSHTTPURLResponse {
                 switch httpResponse.statusCode {
                 case 200:
+                    let defaults = NSUserDefaults.standardUserDefaults()
                     let story = self.storyFromJSONData(data!)!
+                    defaults.setValue(story.url, forKey: "storyUrl")
+                    
                     self.notification.title = "\(story.title)"
                     self.notification.informativeText = "\(story.url)"
                     NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(self.notification)
                     
                 case 401:
-                    self.notification.informativeText = "Cannot get last top stories"
+                    self.notification.title = "Hacker News"
+                    self.notification.informativeText = "Cannot get last stories"
                     NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(self.notification)
                     NSLog("api returned an 'unauthorized' response. Did you set your API key?")
                     
                 default:
-                    self.notification.informativeText = "Cannot get last top stories"
+                    self.notification.title = "Hacker News"
+                    self.notification.informativeText = "Cannot get last stories"
                     NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(self.notification)
                     NSLog("api returned response: %d %@", httpResponse.statusCode, NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode))
                 }
